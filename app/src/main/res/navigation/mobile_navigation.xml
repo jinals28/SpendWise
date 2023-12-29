@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.expensetrackerr.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            app:destination="@+id/addTransactionFragment"
+            android:id="@+id/navigate_home_to_add_transaction"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_receipts"
+        android:name="com.example.expensetrackerr.ui.receipts.ReceiptsFragment"
+        android:label="@string/title_receipt"
+        tools:layout="@layout/fragment_receipts">
+        <action
+            android:id="@+id/action_navigation_receipts_to_addTransactionFragment"
+            app:destination="@id/addTransactionFragment">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_stats"
+        android:name="com.example.expensetrackerr.ui.stats.StatsFragment"
+        android:label="@string/title_stats"
+        tools:layout="@layout/fragment_stats" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.expensetrackerr.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/addTransactionFragment"
+        android:name="com.example.expensetrackerr.ui.addTransaction.AddTransactionFragment"
+        android:label="Add Transaction"
+        tools:layout="@layout/fragment_add_transaction">
+        <argument
+            android:name="transactionObj"
+            app:argType="com.example.expensetrackerr.database.TransactionObj" />
+        <action
+            android:id="@+id/navigate_add_transaction_to_category"
+            app:destination="@id/categoryFragment"/>
+
+        <action
+            android:id="@+id/navigate_add_transaction_to_home"
+            app:destination="@+id/navigation_home"/>
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="-1L" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.expensetrackerr.ui.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category">
+
+        <action
+            android:id="@+id/navigate_category_to_add_transaction"
+            app:destination="@id/addTransactionFragment" />
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="-1L" />
+
+    </fragment>
+
+
+</navigation>

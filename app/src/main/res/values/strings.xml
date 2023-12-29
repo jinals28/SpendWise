@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExpenseTrackerr</string>
+    <string name="title_home">Home</string>
+    <string name="title_receipt">Receipt</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_profile">Profile</string>
+    <string name="error_amount_required">Amount is required</string>
+    <string name="error_category_required">Category is required</string>
+</resources>

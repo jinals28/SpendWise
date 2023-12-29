@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.receipts.ReceiptsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+   <LinearLayout
+       android:id="@+id/parentInfoLinearLayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_margin="16dp"
+       android:padding="14dp">
+
+       <LinearLayout
+           android:id="@+id/infoLinearLayout"
+           android:layout_width="0dp"
+           android:layout_gravity="start"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtStatTotalExpense"
+               android:text="-$730.00"
+               android:textSize="36sp"/>
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtStatCategory"
+               android:text="Today"
+               android:textSize="18sp"/>
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/txtStatTime"
+               android:textColor="@android:color/darker_gray"
+               android:text="September,2020"
+               android:textSize="18sp"/>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:id="@+id/infoBtnLinearLayout"
+           android:layout_gravity="center"
+           android:orientation="vertical">
+
+           <ImageButton
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="5dp"
+               android:backgroundTint="@color/fui_transparent"
+               android:src="@drawable/baseline_edit_24"
+               android:id="@+id/btnCustomTimeLine"/>
+
+           <ImageButton
+               android:layout_margin="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:backgroundTint="@color/fui_transparent"
+               android:src="@drawable/baseline_filter_list_24"
+               android:id="@+id/btnSortByTime"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:id="@+id/receiptsBarChart" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/stat_category_rv_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/statRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="match_parent"
+        android:paddingTop="32dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/stat_category_list"
+        android:background="@drawable/bg_stat_list"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
